@@ -35,5 +35,8 @@ public class SearchLocation extends BasePage{
     }
 //    @FindBy(xpath = "//*[@id=\"policyNewsletter\"]") private WebElement checkbox;
     @FindBy(xpath = "//*[@id=\"subscribeNews\"]") private WebElement maAbonez;
+    public void clickAcceptCookies(){
+        okCookieButton.click();
+    }
 
 }

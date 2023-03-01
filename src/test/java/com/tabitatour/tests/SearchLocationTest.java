@@ -14,33 +14,33 @@ import org.testng.annotations.Test;
 
 import java.util.Set;
 
-public class SearchLocationTest extends BasePage {
+public class SearchLocationTest extends BaseTest {
 
 
-    public SearchLocationTest(WebDriver driver) {
-        super(driver);
-    }
-    @BeforeTest
-    public class getAllCookies {
-        public static void main(String[] args) {
-            WebDriver driver = new ChromeDriver();
-            try {
-                driver.get("https://www.tabitatour.ro/");
-                // Add few cookies
-                driver.manage().addCookie(new Cookie("test1", "cookie1"));
-
-                // Get All available cookies
-                Set<Cookie> cookies = driver.manage().getCookies();
-                System.out.println(cookies);
-            } finally {
-                driver.quit();
-            }
-        }
-    }
-
+//    //public SearchLocationTest(WebDriver driver) {
+//        super(driver);
+//    }
+//    @BeforeTest
+//    public class getAllCookies {
+//        public static void main(String[] args) {
+//            WebDriver driver = new ChromeDriver();
+//            try {
+//                driver.get("https://www.tabitatour.ro/");
+//                // Add few cookies
+//                driver.manage().addCookie(new Cookie("test1", "cookie1"));
+//
+//                // Get All available cookies
+//                Set<Cookie> cookies = driver.manage().getCookies();
+//                System.out.println(cookies);
+//            } finally {
+//                driver.quit();
+//            }
+//        }
+//    }
+//
     @BeforeMethod
         //1. deschidem pagina
-        private void setUp() {
+    protected void setUp() {
             System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
             driver = new ChromeDriver();
             driver.get("https://www.tabitatour.ro/");
@@ -50,6 +50,9 @@ public class SearchLocationTest extends BasePage {
 
     @Test()
         public void selectareLocatie  () {
+
+        SearchLocation searchLocation = new SearchLocation(driver);
+        searchLocation.clickAcceptCookies();
 
 
             WebElement orasDePlecare = driver.findElement(By.xpath("//*[@id=\"externalDeparturePlace\"]"));

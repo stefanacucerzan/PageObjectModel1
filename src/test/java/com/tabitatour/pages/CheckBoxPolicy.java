@@ -12,11 +12,14 @@ public class CheckBoxPolicy extends BasePage{
     public CheckBoxPolicy(WebDriver driver) {
     super(driver);
 }
-    @FindBy(xpath = "//*[@id=\"policyNewsletter\"]") private WebElement checkBox;
+    @FindBy(xpath = "//*[@id=\"policyNewsletter\"]")
+    public static WebElement checkBoxPolicy;
 
+    public void clickOnCheckboxPolicy() {
+        checkBoxPolicy.click();
+    }
 
-
-    public void checkCheckBox() {
-        checkBox.click();
+    public void checkBox() {
+        checkBoxPolicy.click();
     }
 }
