@@ -13,9 +13,9 @@ public  class BaseTest {
     }
 
 
-    @AfterMethod
-    protected void tearDown(){
-        driver.manage().deleteAllCookies();
-        driver.close();}
+//    @AfterMethod
+//    protected void tearDown(){
+//        driver.manage().deleteAllCookies();
+//        driver.close();}
 
 }

@@ -3,9 +3,6 @@ package com.tabitatour.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
-
-import javax.xml.xpath.XPath;
 
 public class SearchLocation extends BasePage{
     public final static String SearchLocation_URL = BASE_URL+"searchlocations";
@@ -14,29 +11,40 @@ public class SearchLocation extends BasePage{
         super(driver);
     }
     @FindBy(xpath = "//*[@id=\"CybotCookiebotDialogBodyLevelButtonAccept\"]") private WebElement okCookieButton;
-    public void OkCookieButton(){
+    public void clickOkCookieButton(){
         okCookieButton.click();
     }
     @FindBy(id = "intern-tab") private WebElement intern;
-    Select select = new Select(intern);
-    @FindBy(xpath="//*[@id=\"internalDeparturePlace\"]") private WebElement orasDePlecare;
-    public  void  OrasDePlecare(){
-        orasDePlecare.click();
+    public void clickIntern(){intern.click();}
+
+    @FindBy(xpath="//*[@id=\"internalDeparturePlace\"]") public WebElement orasDePlecare;
+    public void  enterOrasDePlecare(){
+        orasDePlecare.sendKeys("Cluj Napoca");
     }
 
     @FindBy(xpath="//*[@id=\"dropdown\"]/option[3]") private WebElement orasDeSosire;
-    public void OrasDeSosire(){
-        orasDeSosire.click();
+    public void enterOrasDeSosire(){
+
+        orasDeSosire.sendKeys("bistrita nasaud");
     }
     @FindBy(xpath = "//*[@id=\"searchTrips\"]") private WebElement cauta;
-    public void Cauta (){
+
+    public void clickCauta (){
 
         cauta.click();
     }
 //    @FindBy(xpath = "//*[@id=\"policyNewsletter\"]") private WebElement checkbox;
     @FindBy(xpath = "//*[@id=\"subscribeNews\"]") private WebElement maAbonez;
-    public void clickAcceptCookies(){
-        okCookieButton.click();
+
+    public void clikAbonament() {
+
+        maAbonez.click();
     }
+
+
+
+//    public void clickAcceptCookies(){
+//        okCookieButton.click();
+//    }
 
 }
