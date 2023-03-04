@@ -1,27 +1,13 @@
 package com.tabitatour.tests;
 
-import com.tabitatour.pages.BasePage;
 import com.tabitatour.pages.SearchLocation;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.util.Set;
-
-import static com.herokuapp.pages.LoginPage.LOGIN_URL;
-import static com.tabitatour.pages.SearchLocation.SearchLocation_URL;
-
-public class SearchLocationTest extends BaseTest {
-
-
-
+public class SearchLocationTest extends PaginaDeBazaTest {
 
     @BeforeMethod
         //1. deschidem pagina
@@ -38,20 +24,25 @@ public class SearchLocationTest extends BaseTest {
 
        SearchLocation searchLocation = new SearchLocation(driver);
         searchLocation.clickOkCookieButton();
-        searchLocation.clickIntern();
         searchLocation.enterOrasDePlecare();
         searchLocation.enterOrasDeSosire();
+        searchLocation.selectareCalendar();
+        searchLocation.selecatreDataPlecare();
+        searchLocation.pasageri();
 
-        //    WebElement daySelector = driver.findElement(By.xpath("//*[@id=\"externalDepartureDate\"]"));
-//            daySelector.click();
 
 
-        WebElement pasageri = driver.findElement(By.xpath("//*[@id=\"internalPassengers\"]"));
-        pasageri.sendKeys("1");
 
-        searchLocation.clickCauta();
-        searchLocation.clikAbonament();
-
+//        WebElement dataDePlecareInput = driver.findElement(By.xpath("//*[@id=\"externalDepartureDate\"]"));
+//        dataDePlecareInput.click();
+//
+//        WebElement daySelector = driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[4]/td[4]/a"));
+//        daySelector.click();
+//
+//
+//        WebElement pasageri = driver.findElement(By.xpath("//*[@id=\"internalPassengers\"]"));
+//        pasageri.sendKeys("1");
+//
 
 
 ////          WebElement orasDePlecare = driver.findElement(By.xpath("//*[@id=\"internalDeparturePlace\"]"));
