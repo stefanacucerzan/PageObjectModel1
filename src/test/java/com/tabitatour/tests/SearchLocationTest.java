@@ -12,6 +12,9 @@ public class SearchLocationTest extends PaginaDeBazaTest {
     @BeforeMethod
         //1. deschidem pagina
     protected void setUp() {
+
+//       1. Deschide pagina https://www.tabitatour.ro/
+
             System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
             driver = new ChromeDriver();
             driver.get("https://www.tabitatour.ro/");
@@ -23,36 +26,33 @@ public class SearchLocationTest extends PaginaDeBazaTest {
         public void selectareLocatie  () {
 
        SearchLocation searchLocation = new SearchLocation(driver);
+//       2.click button ok cookie
         searchLocation.clickOkCookieButton();
+
+//        3. introducere oras de plecare
         searchLocation.enterOrasDePlecare();
+
+//        4. introducere oras de sosire
         searchLocation.enterOrasDeSosire();
+
+//        5. click Calendare
         searchLocation.selectareCalendar();
+
+//        6.click data plecare
         searchLocation.selecatreDataPlecare();
+
+//      7. click pasageri
         searchLocation.pasageri();
 
+//        8. click nr pasageri
+        searchLocation.numarPasageri();
 
+//        9.  click cauta ruta
+        searchLocation.clickCauta();
 
+//        searchLocation.pasageri();
+//        searchLocation.
 
-//        WebElement dataDePlecareInput = driver.findElement(By.xpath("//*[@id=\"externalDepartureDate\"]"));
-//        dataDePlecareInput.click();
-//
-//        WebElement daySelector = driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[4]/td[4]/a"));
-//        daySelector.click();
-//
-//
-//        WebElement pasageri = driver.findElement(By.xpath("//*[@id=\"internalPassengers\"]"));
-//        pasageri.sendKeys("1");
-//
-
-
-////          WebElement orasDePlecare = driver.findElement(By.xpath("//*[@id=\"internalDeparturePlace\"]"));
-////          orasDePlecare.sendKeys("Cluj");
-//
-//            WebElement orasDeSosire = driver.findElement(By.xpath("//*[@id=\"externalArrivalPlace\"]"));
-//            orasDeSosire.sendKeys("Beclean");
-//
-////          WebElement dataDePlecare = driver.findElement(By.xpath("//*[@id=\"externalDepartureDate\"]"));
-////          dataDePlecare.click();
 
 
 

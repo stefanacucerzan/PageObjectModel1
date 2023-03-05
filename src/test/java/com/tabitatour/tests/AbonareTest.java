@@ -5,16 +5,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static com.tabitatour.pages.Abonare.ABONAMENT_URL;
+import static com.tabitatour.pages.Abonare.*;
+
 
 public class AbonareTest extends PaginaDeBazaTest {
 //    @Parameters({"emailp"})
     @Test
-    public void AbonareTest (String email){
+    public void AbonareTest (){
         driver = new ChromeDriver();
-        driver.get(ABONAMENT_URL);
+        driver.get(ABONARE_URL);
         Abonare abonare = new Abonare(driver);
-        abonare.enterAdresaDeEmail(email);
+        abonare.clickOkCookieButton();
+        abonare.enterAdresaDeEmail();
         abonare.maAbonez();
         Assert.assertTrue(abonare.checkIfEmailIsDisplayed());
 }}
