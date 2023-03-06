@@ -1,8 +1,10 @@
 package com.tabitatour.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.v109.css.model.Value;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -13,6 +15,14 @@ public class SearchLocation extends PaginaDeBaza {
 
 
     private WebDriver driver;
+
+
+    @FindBy(xpath = "//*[@id=\"externalDeparturePlace\"]")
+    private WebElement firstOption;
+    @FindBy(xpath = "//*[@id=\"dropdown\"]/option[3]")
+    private WebElement secondOption;
+
+
 
     public SearchLocation(WebDriver driver) {
         super(driver);
@@ -27,9 +37,12 @@ public class SearchLocation extends PaginaDeBaza {
 
 
     @FindBy(xpath = "//*[@id=\"externalDeparturePlace\"]")
+
     public WebElement orasDePlecare;
 
+
     public void enterOrasDePlecare() {
+
         orasDePlecare.sendKeys("Cluj Napoca");
     }
 
@@ -37,8 +50,8 @@ public class SearchLocation extends PaginaDeBaza {
     private WebElement localitateDeDestinatie;
 
     public void enterOrasDeSosire() {
-
-        localitateDeDestinatie.sendKeys("MADRID-AUTOGARA, SP");
+        localitateDeDestinatie.click();
+        localitateDeDestinatie.sendKeys("MADRID");
         localitateDeDestinatie.sendKeys(Keys.TAB);
     }
 
@@ -52,31 +65,23 @@ public class SearchLocation extends PaginaDeBaza {
 
     }
 
-    @FindBy(xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[4]/a")
-    private WebElement selectareZi;
-
-    public void selecatreDataPlecare() {
-
-        selectareZi.click();
-        selectareZi.sendKeys(Keys.TAB);
-
-    }
-
-    @FindBy(xpath = "//*[@id=\"externalPassengers\"]")
+    @FindBy(id = "externalPassengers")
     private WebElement selectarePasageri;
 
 
 
-    public void pasageri() {
+    public void  pasageri() {
+
+
         selectarePasageri.click();
-        numarSelectarePasageri.sendKeys(Keys.TAB);}
 
 
-        @FindBy(id="//*[@id=\"popover586998\"]/div[2]/div[2]/button[2]")
+    }
+        @FindBy(xpath="//*[@id=\"popover188675\"]/div[2]/div[2]/button[2]")
         private WebElement numarSelectarePasageri;
 
         public void numarPasageri() {
-            numarSelectarePasageri.getLocation();
+            numarSelectarePasageri.click();
             numarSelectarePasageri.sendKeys(Keys.TAB);
         }
 

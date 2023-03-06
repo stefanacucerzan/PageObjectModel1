@@ -1,11 +1,16 @@
 package com.tabitatour.tests;
 
+import com.herokuapp.pages.DropdownPage;
 import com.tabitatour.pages.SearchLocation;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import static com.herokuapp.pages.DropdownPage.DROPDOWN_URL;
 
 public class SearchLocationTest extends PaginaDeBazaTest {
 
@@ -17,6 +22,7 @@ public class SearchLocationTest extends PaginaDeBazaTest {
 
             System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
             driver = new ChromeDriver();
+
             driver.get("https://www.tabitatour.ro/");
             driver.manage().window().maximize();
         }
@@ -30,7 +36,10 @@ public class SearchLocationTest extends PaginaDeBazaTest {
         searchLocation.clickOkCookieButton();
 
 //        3. introducere oras de plecare
+
+
         searchLocation.enterOrasDePlecare();
+
 
 //        4. introducere oras de sosire
         searchLocation.enterOrasDeSosire();
@@ -38,8 +47,9 @@ public class SearchLocationTest extends PaginaDeBazaTest {
 //        5. click Calendare
         searchLocation.selectareCalendar();
 
+
 //        6.click data plecare
-        searchLocation.selecatreDataPlecare();
+//        searchLocation.selecatreDataPlecare();
 
 //      7. click pasageri
         searchLocation.pasageri();
@@ -50,16 +60,6 @@ public class SearchLocationTest extends PaginaDeBazaTest {
 //        9.  click cauta ruta
         searchLocation.clickCauta();
 
-//        searchLocation.pasageri();
-//        searchLocation.
 
-
-
-
-
-
-//             WebElement cauta = driver.findElement(By.xpath("//*[@id=\"searchTrips\"]"));
-//             cauta.click();
-//
         }
     }
