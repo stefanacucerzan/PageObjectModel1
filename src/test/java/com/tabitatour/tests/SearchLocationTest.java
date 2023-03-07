@@ -85,7 +85,7 @@ public class SearchLocationTest extends PaginaDeBazaTest {
 
 //        9.  click cauta ruta
         searchLocation.clickCauta();
-//        Assert.assertTrue(searchLocation.checkIfInformatiiRutaIsDisplayed());
+        Assert.assertTrue(searchLocation.checkIfInformatiiRutaIsDisplayed());
 
     }
 }
