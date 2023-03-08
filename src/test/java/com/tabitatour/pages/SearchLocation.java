@@ -33,8 +33,13 @@ public class SearchLocation extends PaginaDeBaza {
     public void enterOrasDePlecare() {
 
         orasDePlecare.sendKeys("Cluj Napoca");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         orasDePlecare.sendKeys(Keys.ARROW_DOWN);
-//        orasDePlecare.click();
+
 //        orasDePlecare.sendKeys(Keys.TAB);
         orasDePlecare.sendKeys(Keys.ENTER);}
 
@@ -45,12 +50,17 @@ public class SearchLocation extends PaginaDeBaza {
     private WebElement localitateDeDestinatie;
 
     public void enterOrasDeSosire() {
-
+        localitateDeDestinatie.click();
         localitateDeDestinatie.sendKeys("MADRID");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         localitateDeDestinatie.sendKeys(Keys.ARROW_DOWN);
-//        localitateDeDestinatie.click();
         localitateDeDestinatie.sendKeys(Keys.ENTER);
-//        localitateDeDestinatie.sendKeys(Keys.TAB);
+        localitateDeDestinatie.sendKeys(Keys.TAB);
+
     }
 
     @FindBy(xpath = "//*[@id=\"externalDepartureDate\"]")
