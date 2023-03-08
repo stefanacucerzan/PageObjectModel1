@@ -16,10 +16,32 @@ public class AbonareTest extends PaginaDeBazaTest {
         driver.get(ABONAMENT_URL);
         Abonare abonare = new Abonare(driver);
         abonare.clickOkCookieButton();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+//        abonare.cybotdialog();
         abonare.checkBox();
-        abonare.enterAdresaDeEmail();
-        abonare.maAbonez();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
+        abonare.enterAdresaDeEmail();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        abonare.maAbonez();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(abonare.checkIfEmailIsDisplayed());
 
 }}

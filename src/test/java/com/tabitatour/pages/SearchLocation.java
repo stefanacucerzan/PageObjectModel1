@@ -8,14 +8,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.v109.css.model.Value;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.Test;
 
 import javax.xml.xpath.XPath;
-import java.security.PublicKey;
 
 public class SearchLocation extends PaginaDeBaza {
-
-
     private WebDriver driver;
 
     public SearchLocation(WebDriver driver) {
@@ -26,28 +22,44 @@ public class SearchLocation extends PaginaDeBaza {
     private WebElement okCookieButton;
 
     public void clickOkCookieButton() {
+        okCookieButton.click();
+    }
 
-        okCookieButton.click();}
-    @FindBy(xpath = "//*[@id=\"externalDeparturePlace\"]") public WebElement orasDePlecare;
 
-    public void enterOrasDePlecare() {
+    @FindBy(xpath = "//*[@id=\"externalDeparturePlace\"]")
 
-        orasDePlecare.sendKeys("Cluj Napoca");
+    public WebElement orasDePlecare;
+
+
+    public void introduOrasDePlecare() {
+        orasDePlecare.click();
+
+        orasDePlecare.sendKeys("Cluj");
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+        orasDePlecare.sendKeys(Keys.ENTER);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        orasDePlecare.click();
         orasDePlecare.sendKeys(Keys.ARROW_DOWN);
-
-//        orasDePlecare.sendKeys(Keys.TAB);
-        orasDePlecare.sendKeys(Keys.ENTER);}
-
-
-
+        orasDePlecare.sendKeys(Keys.ENTER);
+        orasDePlecare.sendKeys(Keys.TAB);
+    }
 
     @FindBy(xpath = "//*[@id=\"externalArrivalPlace\"]")
     private WebElement localitateDeDestinatie;
+
+    public void clickOrasSosire(){
+        localitateDeDestinatie.click();
+        localitateDeDestinatie.sendKeys(Keys.ENTER);
+    }
 
     public void enterOrasDeSosire() {
         localitateDeDestinatie.click();
@@ -68,24 +80,42 @@ public class SearchLocation extends PaginaDeBaza {
 
     public void selectareCalendar() {
         calendarSelector.click();
-        calendarSelector.sendKeys(Keys.TAB);}
+        calendarSelector.sendKeys(Keys.TAB);
+
+
+    }
 
     @FindBy(id = "externalPassengers")
     private WebElement selectarePasageri;
 
+
+
     public void  pasageri() {
         selectarePasageri.click();
-//        selectarePasageri.click();
+        selectarePasageri.click();
+//        selectarePasageri.sendKeys(Keys.TAB);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }
-    @FindBy(xpath="//*[@class=\"popover-button\"][2]")
+    @FindBy(xpath="//*[@id=\"popover204782\"]/div[2]/div[2]/button[2]")
     private WebElement numarSelectarePasageri;
 
+
     public void numarPasageri() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         numarSelectarePasageri.click();
         numarSelectarePasageri.click();
         numarSelectarePasageri.sendKeys(Keys.TAB);
+
     }
 
     @FindBy(id = "searchTrips") private WebElement cauta;
@@ -95,8 +125,7 @@ public class SearchLocation extends PaginaDeBaza {
     }
     @FindBy (xpath = "//*[@id=\"triggerResults\"]/div/div[2]/span") WebElement alertText;
     public boolean checkIfInformatiiRutaIsDisplayed(){return alertText.isDisplayed();}
-    public String MessageText(){
-        return alertText.getText();
-    }
+
 }
+
 

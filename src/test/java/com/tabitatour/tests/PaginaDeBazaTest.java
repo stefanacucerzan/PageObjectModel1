@@ -12,9 +12,9 @@ public  class PaginaDeBazaTest {
     }
 
 
-//    @AfterMethod
-//    protected void tearDown(){
-//        driver.manage().deleteAllCookies();
-//        driver.close();}
+    @AfterMethod
+    protected void tearDown(){
+        driver.manage().deleteAllCookies();
+        driver.close();}
 
 }

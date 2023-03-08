@@ -13,6 +13,8 @@ public class Abonare extends PaginaDeBaza {
     @FindBy(xpath = "//*[@id=\"CybotCookiebotDialogBodyLevelButtonAccept\"]") private WebElement okCookieButton;
     public void clickOkCookieButton(){
         okCookieButton.click();
+        okCookieButton.sendKeys(Keys.TAB);
+        okCookieButton.sendKeys(Keys.TAB);
     }
     public final static String ABONAMENT_URL=BASE_URL;
 
@@ -21,10 +23,17 @@ public class Abonare extends PaginaDeBaza {
 
         public void checkBox() {
             clickCheckBoxPolicy.click();
+            clickCheckBoxPolicy.click();
+            clickCheckBoxPolicy.sendKeys(Keys.TAB);
+//            okCookieButton.sendKeys(Keys.TAB);
         }
-
+//    @FindBy(xpath = "//*[@id=\"gb-widget-1700\"]/div/a/div/svg") public static WebElement closeCybotDialog;
+//        public void cybotdialog(){
+//            closeCybotDialog.clear();
+//        }
     @FindBy(xpath="//*[@id=\"emailNewsletter\"]") private WebElement adresaDeEmail;
     public void enterAdresaDeEmail(){
+        adresaDeEmail.click();
         adresaDeEmail.sendKeys("stefanacucerzan@gmail.com");
         adresaDeEmail.sendKeys(Keys.TAB);
     }
